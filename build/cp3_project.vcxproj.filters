@@ -4,7 +4,13 @@
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\build\cp3_project_autogen\mocs_compilation_Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\mainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\build\cp3_project_autogen\mocs_compilation_Release.cpp">
@@ -18,9 +24,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <CustomBuild Include="C:\Users\Oskar\Documents\cp3_project\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{129532F3-CAFE-3749-A191-B6E844944FF5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{DC700824-AFCB-3B2B-9E96-F4FF6E627B0E}</UniqueIdentifier>
     </Filter>
