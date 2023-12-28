@@ -1,9 +1,3 @@
-C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/Experimental.dir
-C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/Nightly.dir
-C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/Continuous.dir
-C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/NightlyMemoryCheck.dir
 C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/cp3_project.dir
-C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/PACKAGE.dir
-C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/RUN_TESTS.dir
 C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/ZERO_CHECK.dir

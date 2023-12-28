@@ -1,17 +1,35 @@
-cmake_minimum_required(VERSION 3.15)
-project(cp3_project VERSION 0.1.0 LANGUAGES C CXX)
+# FILEPATH: /c:/Users/Oskar/Documents/cp3_project/CMakeLists.txt
 
-include(CTest)
-enable_testing()
+cmake_minimum_required(VERSION 3.16)
+project(cp3_project)
 
+# Find Qt6
+find_package(Qt6 COMPONENTS Core REQUIRED)
+
+# Find OpenCV
 find_package(OpenCV REQUIRED)
 
-include_directories(${OpenCV_INCLUDE_DIRS})
+# Add your source files here
+set(SOURCES
+    src/main.cpp
+    # Add your source files here
+)
 
-add_executable(cp3_project main.cpp)
+# Add your header files here
+set(HEADERS
+    # Add your header files here
+)
 
-target_link_libraries(cp3_project ${OpenCV_LIBS})
+# Add your resource files here
+set(RESOURCES
+    # Add your resource files here
+)
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+# Create the executable
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${RESOURCES})
+
+# Link Qt6
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core)
+
+# Link OpenCV
+target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
