@@ -1,0 +1,10 @@
+^C:\USERS\OSKAR\DOCUMENTS\CP3_PROJECT\BUILD\CMAKEFILES\6CDFC77635507886E7536979022B7F20\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Oskar/Documents/cp3_project -BC:/Users/Oskar/Documents/cp3_project/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Oskar/Documents/cp3_project/build/cp3_project.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
