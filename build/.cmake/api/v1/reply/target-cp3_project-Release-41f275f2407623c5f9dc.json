@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "RelWithDebInfo/cp3_project.exe"
+			"path" : "Release/cp3_project.exe"
 		},
 		{
-			"path" : "RelWithDebInfo/cp3_project.pdb"
+			"path" : "Release/cp3_project.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -17,14 +17,23 @@
 			"target_link_libraries",
 			"set_target_properties",
 			"include",
-			"find_package"
+			"find_package",
+			"find_dependency",
+			"_qt_internal_find_qt_dependencies",
+			"include_directories"
 		],
 		"files" : 
 		[
 			"CMakeLists.txt",
+			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
+			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
 			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
 			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
-			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6/Qt6Config.cmake"
+			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
+			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+			"C:/Qt/6.6.1/msvc2019_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake"
 		],
 		"nodes" : 
 		[
@@ -34,56 +43,138 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 29,
+				"line" : 38,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 32,
+				"line" : 46,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 35,
+				"line" : 49,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 7,
+				"line" : 12,
 				"parent" : 0
-			},
-			{
-				"file" : 3,
-				"parent" : 4
-			},
-			{
-				"command" : 4,
-				"file" : 3,
-				"line" : 156,
-				"parent" : 5
 			},
 			{
 				"file" : 2,
-				"parent" : 6
+				"parent" : 4
 			},
 			{
 				"command" : 3,
 				"file" : 2,
-				"line" : 53,
-				"parent" : 7
+				"line" : 52,
+				"parent" : 5
 			},
 			{
 				"file" : 1,
-				"parent" : 8
+				"parent" : 6
 			},
 			{
 				"command" : 2,
 				"file" : 1,
 				"line" : 61,
+				"parent" : 7
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"file" : 4,
 				"parent" : 9
+			},
+			{
+				"command" : 3,
+				"file" : 4,
+				"line" : 53,
+				"parent" : 10
+			},
+			{
+				"file" : 3,
+				"parent" : 11
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 61,
+				"parent" : 12
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 40,
+				"parent" : 5
+			},
+			{
+				"file" : 9,
+				"parent" : 14
+			},
+			{
+				"command" : 6,
+				"file" : 9,
+				"line" : 39,
+				"parent" : 15
+			},
+			{
+				"command" : 5,
+				"file" : 8,
+				"line" : 111,
+				"parent" : 16
+			},
+			{
+				"command" : 4,
+				"file" : 7,
+				"line" : 76,
+				"parent" : 17
+			},
+			{
+				"file" : 6,
+				"parent" : 18
+			},
+			{
+				"command" : 3,
+				"file" : 6,
+				"line" : 52,
+				"parent" : 19
+			},
+			{
+				"file" : 5,
+				"parent" : 20
+			},
+			{
+				"command" : 2,
+				"file" : 5,
+				"line" : 61,
+				"parent" : 21
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 24,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 25,
+				"parent" : 0
 			}
 		]
 	},
@@ -93,7 +184,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /O2 /Ob1 /DNDEBUG -std:c++17 -MD"
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -std:c++17 -MD"
 				},
 				{
 					"backtrace" : 2,
@@ -116,7 +207,15 @@
 				},
 				{
 					"backtrace" : 2,
+					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "QT_NO_DEBUG"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_WIDGETS_LIB"
 				},
 				{
 					"backtrace" : 2,
@@ -146,9 +245,31 @@
 			"includes" : 
 			[
 				{
+					"path" : "C:/Users/Oskar/Documents/cp3_project/build"
+				},
+				{
+					"path" : "C:/Users/Oskar/Documents/cp3_project"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Release"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "C:/Users/Oskar/Documents/cp3_project/forms"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "C:/Users/Oskar/Documents/cp3_project/include"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "C:/Users/Oskar/Documents/cp3_project/src"
+				},
+				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "C:/Qt/6.6.1/msvc2019_64/include/QtCore"
+					"path" : "C:/Qt/6.6.1/msvc2019_64/include/QtWidgets"
 				},
 				{
 					"backtrace" : 2,
@@ -158,7 +279,17 @@
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
+					"path" : "C:/Qt/6.6.1/msvc2019_64/include/QtCore"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
 					"path" : "C:/Qt/6.6.1/msvc2019_64/mkspecs/win32-msvc"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Qt/6.6.1/msvc2019_64/include/QtGui"
 				},
 				{
 					"backtrace" : 3,
@@ -178,7 +309,8 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
@@ -194,106 +326,136 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /Zi /O2 /Ob1 /DNDEBUG -MD",
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
+				"fragment" : "/machine:x64 /INCREMENTAL:NO /subsystem:console",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "C:\\Qt\\6.6.1\\msvc2019_64\\lib\\Qt6Widgets.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
+				"fragment" : "C:\\Qt\\6.6.1\\msvc2019_64\\lib\\Qt6Gui.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 8,
 				"fragment" : "C:\\Qt\\6.6.1\\msvc2019_64\\lib\\Qt6Core.lib",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "C:\\Users\\Oskar\\Documents\\opencv\\build\\x64\\vc16\\lib\\opencv_world480.lib",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 10,
+				"backtrace" : 13,
 				"fragment" : "mpr.lib",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 10,
+				"backtrace" : 13,
 				"fragment" : "userenv.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "d3d11.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "dxgi.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "dxguid.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 22,
+				"fragment" : "d3d12.lib",
 				"role" : "libraries"
 			},
 			{
@@ -316,12 +478,20 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
 	"sources" : 
 	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/cp3_project_autogen/mocs_compilation_Release.cpp",
+			"sourceGroupIndex" : 0
+		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,

@@ -1,29 +1,38 @@
-//create an app that will detect faces in the video capture
-
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <iostream>
 #include <Windows.h>
 
+#include <QApplication>
+#include <QMainWindow>
+#include <QLabel>
+#include <QTimer>
+
 using namespace cv;
 using namespace std;
 
-//write a function that will detect faces and draw moustache on them in the current frame and return combined frame
 Mat detectAndDraw(Mat& img, CascadeClassifier& cascade, CascadeClassifier& nestedCascade, double scale);
+
 
 int main(int argc, char** argv)
 {
-    //read the video capture
-    VideoCapture capture;
+    QApplication app(argc, argv);
 
-    //create a Mat object to store the current frame
-    Mat frame, image;
+    QMainWindow window;
+    QLabel* videoLabel = new QLabel(&window);
+    window.setCentralWidget(videoLabel);
+    window.show();
 
-    //show the video capture in a window
-    namedWindow("result", 1);
+    VideoCapture capture(0); // Open the default camera
+    if (!capture.isOpened())
+    {
+        qDebug() << "Failed to open camera!";
+        return -1;
+    }
 
-    //use detectAndDraw function to detect faces in the current frame
+    Mat frame, img;
+    
     CascadeClassifier cascade, nestedCascade;
     double scale = 1;
 
@@ -53,64 +62,26 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    //open the video capture
-    capture.open(0);
 
-    int frame_width = static_cast<int>(capture.get(CAP_PROP_FRAME_WIDTH)); //get the width of frames of the video
-    int frame_height = static_cast<int>(capture.get(CAP_PROP_FRAME_HEIGHT)); //get the height of frames of the video
-    
-    Size frame_size(frame_width, frame_height);
-    int frames_per_second = 10;
+    QTimer timer;
+    QObject::connect(&timer, &QTimer::timeout, [&]() {
+        Mat frame;
+        capture >> frame; // Capture frame from camera
 
-    VideoWriter oVideoWriter("MyVideo.avi", VideoWriter::fourcc('M', 'J', 'P', 'G'), 
-                                                               frames_per_second, frame_size, true); 
-
-    //check if the video capture is opened
-    if (capture.isOpened())
-    {
-        //iterate until the user presses the Esc key
-        while (true)
+        if (!frame.empty())
         {
-            //read the current frame
-            capture >> frame;
-
-            //check if the current frame is empty
-            if (frame.empty())
-            {
-                //print an error message
-                cerr << "ERROR: Could not read frame" << endl;
-
-                //break the loop
-                break;
-            }
-
             //call the detectAndDraw function to detect faces in the current frame
-            image = detectAndDraw(frame, cascade, nestedCascade, scale);
-            
-            oVideoWriter.write(frame);
-            //show the current frame in a window
-            imshow("result", image);
+            img = detectAndDraw(frame, cascade, nestedCascade, scale);
+            cvtColor(frame, frame, COLOR_BGR2RGB); // Convert color format
 
-            //wait for 30 milliseconds until any key is pressed
-            int c = waitKey(30);
-
-            //check if the Esc key is pressed
-            if ((char)c == 27)
-            {
-                //break the loop
-                break;
-            }
+            QImage image(frame.data, frame.cols, frame.rows, frame.step, QImage::Format_RGB888);
+            videoLabel->setPixmap(QPixmap::fromImage(image)); // Display the frame
         }
-    }
+    });
 
-    //release the video capture object
-    capture.release();
-    oVideoWriter.release();
+    timer.start(30); // Update frame every 30 milliseconds
 
-    //close all the opened windows
-    destroyAllWindows();
-
-    return 0;
+    return app.exec();
 }
 
 //write a function that will detect faces and draw moustache on them in the current frame and return combined frame
@@ -206,10 +177,6 @@ Mat detectAndDraw(Mat& img, CascadeClassifier& cascade, CascadeClassifier& neste
         Mat glassesROI = img(Rect(faces[i].x, faces[i].y + faces[i].height*1/10, faces[i].width, faces[i].height/2));
         glasses.copyTo(glassesROI, glassesMask);
     }    
-
-    
-
     //return the combined frame
     return img;
 }
-
