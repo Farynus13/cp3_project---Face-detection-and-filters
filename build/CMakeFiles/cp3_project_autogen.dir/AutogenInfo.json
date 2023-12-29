@@ -305,6 +305,12 @@
 			null
 		],
 		[
+			"C:/Users/Oskar/Documents/cp3_project/include/faceFilter.h",
+			"MU",
+			"6YEA5652QU/moc_faceFilter.cpp",
+			null
+		],
+		[
 			"C:/Users/Oskar/Documents/cp3_project/include/mainWindow.h",
 			"MU",
 			"6YEA5652QU/moc_mainWindow.cpp",
@@ -475,6 +481,7 @@
 			"MU",
 			null
 		],
+		[ "C:/Users/Oskar/Documents/cp3_project/src/faceFilter.cpp", "MU", null ],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/main.cpp", "MU", null ],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/mainWindow.cpp", "MU", null ]
 	],

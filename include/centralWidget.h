@@ -9,18 +9,21 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include "faceFilter.h"
 
 class CentralWidget : public QWidget
 {
     Q_OBJECT
-
+    cv::CascadeClassifier cascade, eyesCascade,mouthCascade,noseCascade;
+    double scale = 1;
+    std::vector<FaceFilter*> filters;
 public:
     CentralWidget(QWidget *parent = nullptr);
 private:
-    cv::Mat detectAndDraw(cv::Mat& img, cv::CascadeClassifier& cascade, cv::CascadeClassifier& nestedCascade, double scale);
+    cv::Mat detectAndDraw(cv::Mat& img, cv::CascadeClassifier& cascade, cv::CascadeClassifier& eyesCascade,
+     cv::CascadeClassifier& mouthCascade, cv::CascadeClassifier& noseCascade,double scale);
     void readCamera(QLabel *label,cv::VideoCapture capture);
-    cv::CascadeClassifier cascade, nestedCascade;
-    double scale = 1;
+    void chooseEyes(std::vector<cv::Rect> &eyes, cv::Mat& faceROI);
 
 };
 

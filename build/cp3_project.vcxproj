@@ -399,8 +399,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h" />
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\faceFilter.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp" />
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\faceFilter.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\main.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\mainWindow.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\build\cp3_project_autogen\mocs_compilation_Release.cpp">
