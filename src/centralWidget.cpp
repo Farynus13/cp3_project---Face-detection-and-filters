@@ -9,10 +9,12 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     //load the images
     Mat moustacheImg = imread("moustache.png", -1);
     Mat glassesImg = imread("glasses.png", -1);
+    Mat fedoraImg = imread("fedora.png", -1);
 
     //create a vector of FaceFilter objects
-    filters.push_back(new FaceFilter(moustacheImg, 80, 255, 7.5 / 16.0));
-    filters.push_back(new FaceFilter(glassesImg, 80, 255, 1.0 / 10.0));
+    filters.push_back(new FaceFilter(moustacheImg, 80, 255, FaceFilter::Mouth));
+    filters.push_back(new FaceFilter(glassesImg, 80, 255, FaceFilter::Eyes));
+    filters.push_back(new FaceFilter(fedoraImg, 80, 255, FaceFilter::Hat));
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     QLabel *label = new QLabel(this);
@@ -84,7 +86,7 @@ Mat CentralWidget::detectAndDraw(Mat& img, CascadeClassifier& cascade, CascadeCl
     equalizeHist(smallImg, smallImg);
 
     //detect faces of different sizes using cascade classifier object
-    cascade.detectMultiScale(smallImg, faces, 1.1, 7, 0 | CASCADE_SCALE_IMAGE, Size(100, 100));
+    cascade.detectMultiScale(smallImg, faces, 1.1, 3, 0 | CASCADE_SCALE_IMAGE, Size(50,50));
 
     //iterate over the faces and draw a rectangle around them
     for (size_t i = 0; i < faces.size(); i++)
