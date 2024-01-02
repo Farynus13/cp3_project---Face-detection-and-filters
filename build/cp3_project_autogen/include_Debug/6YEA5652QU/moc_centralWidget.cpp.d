@@ -144,6 +144,7 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtGui/qtransform.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/QGridLayout \
   C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/QLabel \
   C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/QPushButton \
   C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/QVBoxLayout \

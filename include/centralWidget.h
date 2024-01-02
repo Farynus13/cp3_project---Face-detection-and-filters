@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QGridLayout>
 #include <QPushButton>
 #include <QLabel>
 #include <QTimer>
@@ -28,6 +29,7 @@ private:
      cv::CascadeClassifier& mouthCascade, cv::CascadeClassifier& noseCascade,double scale);
     void readCamera(QLabel *label,cv::VideoCapture capture);
     void chooseEyes(std::vector<cv::Rect> &eyes, cv::Mat& faceROI);
+    void updateFilterLabel(QLabel *label, FilterSet *filterSet);
 
 };
 

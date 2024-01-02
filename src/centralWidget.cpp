@@ -14,7 +14,7 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
         cv::Mat img = cv::imread("../../media/img/" + images[i].toStdString(), cv::IMREAD_UNCHANGED);
         if(images[i].contains("glasses"))
         {
-            glassesSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Glasses));
+            glassesSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Glasses));
         }
         else if(images[i].contains("beard"))
         {
@@ -22,19 +22,27 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
         }
         else if(images[i].contains("hat"))
         {
-            hatSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Hat));
+            hatSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Hat));
         }
         else if(images[i].contains("mask"))
         {
-            maskSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Mask));
+            maskSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Mask));
         }
         else if(images[i].contains("monocle"))
         {
-            monocleSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Monocle));
+            monocleSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Monocle));
+        }
+        else if(images[i].contains("empty"))
+        {
+            glassesSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Glasses));
+            beardSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Beard));
+            hatSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Hat));
+            maskSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Mask));
+            monocleSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Monocle));
         }
     }
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QGridLayout *layout = new QGridLayout(this);
     QLabel *cameraLabel = new QLabel(this);
     QLabel *hatLabel = new QLabel(this);
     QLabel *glassesLabel = new QLabel(this);
@@ -52,18 +60,22 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     QPushButton *maskButtonUp = new QPushButton("Mask>", this);
     QPushButton *maskButtonDown = new QPushButton("<Mask", this);
 
-    layout->addWidget(cameraLabel);
-    layout->addWidget(hatButtonUp);
-    layout->addWidget(hatButtonDown);
-    layout->addWidget(glassesButtonUp);
-    layout->addWidget(glassesButtonDown);
-    layout->addWidget(beardButtonUp);
-    layout->addWidget(beardButtonDown);
-    layout->addWidget(monocleButtonUp);
-    layout->addWidget(monocleButtonDown);
-    layout->addWidget(maskButtonUp);
-    layout->addWidget(maskButtonDown);
-
+    layout->addWidget(cameraLabel,0,0,1,5);
+    layout->addWidget(hatButtonUp,1,0);
+    layout->addWidget(hatButtonDown,3,0);
+    layout->addWidget(glassesButtonUp,1,1);
+    layout->addWidget(glassesButtonDown,3,1);
+    layout->addWidget(beardButtonUp,1,2);
+    layout->addWidget(beardButtonDown,3,2);
+    layout->addWidget(monocleButtonUp,1,3);
+    layout->addWidget(monocleButtonDown,3,3);
+    layout->addWidget(maskButtonUp,1,4);
+    layout->addWidget(maskButtonDown,3,4);
+    layout->addWidget(hatLabel,2,0);
+    layout->addWidget(glassesLabel,2,1);
+    layout->addWidget(beardLabel,2,2);
+    layout->addWidget(monocleLabel,2,3);
+    layout->addWidget(maskLabel,2,4);
     
 
     setLayout(layout);
@@ -88,6 +100,76 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     });
 
     timer->start(50); // Start the timer to update the camera feed
+
+    //set initial filter images
+    updateFilterLabel(hatLabel, &hatSet);
+    updateFilterLabel(glassesLabel, &glassesSet);
+    updateFilterLabel(beardLabel, &beardSet);
+    updateFilterLabel(monocleLabel, &monocleSet);
+    updateFilterLabel(maskLabel, &maskSet);
+
+    connect(hatButtonUp, &QPushButton::clicked, [=]() {
+        hatSet.indexUp();
+        updateFilterLabel(hatLabel, &hatSet);
+    });
+
+    connect(hatButtonDown, &QPushButton::clicked, [=]() {
+        hatSet.indexDown();
+        updateFilterLabel(hatLabel, &hatSet);
+    });
+
+    connect(glassesButtonUp, &QPushButton::clicked, [=]() {
+        glassesSet.indexUp();
+        updateFilterLabel(glassesLabel, &glassesSet);
+    });
+
+    connect(glassesButtonDown, &QPushButton::clicked, [=]() {
+        glassesSet.indexDown();
+        updateFilterLabel(glassesLabel, &glassesSet);
+    });
+
+    connect(beardButtonUp, &QPushButton::clicked, [=]() {
+        beardSet.indexUp();
+        updateFilterLabel(beardLabel, &beardSet);
+    });
+
+    connect(beardButtonDown, &QPushButton::clicked, [=]() {
+        beardSet.indexDown();
+        updateFilterLabel(beardLabel, &beardSet);
+    });
+
+    connect(monocleButtonUp, &QPushButton::clicked, [=]() {
+        monocleSet.indexUp();
+        updateFilterLabel(monocleLabel, &monocleSet);
+    });
+
+    connect(monocleButtonDown, &QPushButton::clicked, [=]() {
+        monocleSet.indexDown();
+        updateFilterLabel(monocleLabel, &monocleSet);
+    });
+
+    connect(maskButtonUp, &QPushButton::clicked, [=]() {
+        maskSet.indexUp();
+        updateFilterLabel(maskLabel, &maskSet);
+    });
+
+    connect(maskButtonDown, &QPushButton::clicked, [=]() {
+        maskSet.indexDown();
+        updateFilterLabel(maskLabel, &maskSet);
+    });
+
+}
+
+void CentralWidget::updateFilterLabel(QLabel *label, FilterSet *filterSet) {
+    Mat img = filterSet->currentFilter()->getImg().clone();
+    // Convert the frame to QImage for display
+    QImage image(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888);
+    image = image.rgbSwapped();
+    //set image size 150x200
+    image = image.scaled(100,100,Qt::KeepAspectRatio);
+    label->setPixmap(QPixmap::fromImage(image));
+    label->setScaledContents( true );
+
 }
 
 void CentralWidget::readCamera(QLabel *cameraLabel,cv::VideoCapture capture) {
@@ -160,12 +242,11 @@ Mat CentralWidget::detectAndDraw(Mat& img, CascadeClassifier& cascade, CascadeCl
         //     cv::circle(img, center, radius, Scalar(0, 255, 0), 3, 8, 0);
 
         // }
-        
+        maskSet.currentFilter()->apply(img,faces[i]);
         beardSet.currentFilter()->apply(img,faces[i]);      
         glassesSet.currentFilter()->apply(img,faces[i]);
-        hatSet.currentFilter()->apply(img,faces[i]);
-        maskSet.currentFilter()->apply(img,faces[i]);
         monocleSet.currentFilter()->apply(img,faces[i]);      
+        hatSet.currentFilter()->apply(img,faces[i]);
     }    
     //return the combined frame
     return img;
