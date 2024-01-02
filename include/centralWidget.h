@@ -15,8 +15,7 @@
 class CentralWidget : public QWidget
 {
     Q_OBJECT
-    cv::CascadeClassifier cascade, eyesCascade,mouthCascade,noseCascade;
-    double scale = 1;
+    cv::CascadeClassifier cascade;
     FilterSet glassesSet;
     FilterSet beardSet;
     FilterSet hatSet;
@@ -25,8 +24,7 @@ class CentralWidget : public QWidget
 public:
     CentralWidget(QWidget *parent = nullptr);
 private:
-    cv::Mat detectAndDraw(cv::Mat& img, cv::CascadeClassifier& cascade, cv::CascadeClassifier& eyesCascade,
-     cv::CascadeClassifier& mouthCascade, cv::CascadeClassifier& noseCascade,double scale);
+    cv::Mat detectAndDraw(cv::Mat& img, cv::CascadeClassifier& cascade);
     void readCamera(QLabel *label,cv::VideoCapture capture);
     void chooseEyes(std::vector<cv::Rect> &eyes, cv::Mat& faceROI);
     void updateFilterLabel(QLabel *label, FilterSet *filterSet);

@@ -7,31 +7,37 @@
 
 class FaceFilter {
 public:
+// Enumerated type for the different filters
     enum FilterType {
         Glasses,
         Beard,
         Hat,
         Mask,
-        Monocle
+        Monocle,
+        Empty
     };
 
 private:
+    //threshold values
     int threshMax;
     int threshMin;
-    cv::Mat mask;
-    FilterType type;
+
+    cv::Mat mask; // Mask for the filter
+    FilterType type; // Type of filter
 
 protected:
+    //image for filter
     cv::Mat img;
+    //offsets and factors for filter placement
     double yOffset;
     double yFactor;
     double xOffset;
     double xFactor;
     
 public:
-    FaceFilter(cv::Mat img, int threshMin, int threshMax, FilterType type);
-    void apply(cv::Mat& frame,const cv::Rect &face);
-    cv::Mat getImg() { return img; }
+    FaceFilter(cv::Mat img, int threshMin, int threshMax, FilterType type); // Constructor
+    void apply(cv::Mat& frame,const cv::Rect &face); // Applies the filter to the frame
+    cv::Mat getImg() { return img; } // Returns the filter image
 };
 
 #endif  //FACEFILTER_H

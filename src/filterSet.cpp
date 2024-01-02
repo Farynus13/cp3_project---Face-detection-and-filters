@@ -1,7 +1,6 @@
 #include "filterSet.h"
 
 FilterSet::FilterSet() {
-    // Initialize any member variables here
     index = 0;
 }
 

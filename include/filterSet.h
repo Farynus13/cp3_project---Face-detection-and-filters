@@ -14,12 +14,11 @@ public:
 
     // Member functions
     void addFilter(FaceFilter *filterId);
-    FaceFilter* currentFilter();
-    void indexUp();
-    void indexDown();
+    FaceFilter* currentFilter(); // Returns the current filter
+    void indexUp(); // Increments the index
+    void indexDown(); // Decrements the index
 private:
-    // Private member variables
-    std::vector<FaceFilter*> filters;
+    std::vector<FaceFilter*> filters; // Vector of filters
     int index;
 };
 
