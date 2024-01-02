@@ -311,6 +311,12 @@
 			null
 		],
 		[
+			"C:/Users/Oskar/Documents/cp3_project/include/filterSet.h",
+			"MU",
+			"6YEA5652QU/moc_filterSet.cpp",
+			null
+		],
+		[
 			"C:/Users/Oskar/Documents/cp3_project/include/mainWindow.h",
 			"MU",
 			"6YEA5652QU/moc_mainWindow.cpp",
@@ -482,6 +488,7 @@
 			null
 		],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/faceFilter.cpp", "MU", null ],
+		[ "C:/Users/Oskar/Documents/cp3_project/src/filterSet.cpp", "MU", null ],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/main.cpp", "MU", null ],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/mainWindow.cpp", "MU", null ]
 	],

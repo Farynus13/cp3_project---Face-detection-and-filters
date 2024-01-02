@@ -10,6 +10,9 @@
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\faceFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\filterSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -31,6 +34,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\faceFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\filterSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h">

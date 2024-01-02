@@ -9,14 +9,18 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include "faceFilter.h"
+#include "filterSet.h"
 
 class CentralWidget : public QWidget
 {
     Q_OBJECT
     cv::CascadeClassifier cascade, eyesCascade,mouthCascade,noseCascade;
     double scale = 1;
-    std::vector<FaceFilter*> filters;
+    FilterSet glassesSet;
+    FilterSet beardSet;
+    FilterSet hatSet;
+    FilterSet maskSet;
+    FilterSet monocleSet;
 public:
     CentralWidget(QWidget *parent = nullptr);
 private:

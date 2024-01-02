@@ -1,28 +1,72 @@
 #include "centralWidget.h"
-#include "faceFilter.h"
+#include <QDir>
 
 using namespace cv;
 using namespace std;
 
 CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
 {
-    //load the images
-    Mat moustacheImg = imread("moustache.png", -1);
-    Mat glassesImg = imread("glasses.png", -1);
-    Mat fedoraImg = imread("fedora.png", -1);
-
-    //create a vector of FaceFilter objects
-    filters.push_back(new FaceFilter(moustacheImg, 80, 255, FaceFilter::Mouth));
-    filters.push_back(new FaceFilter(glassesImg, 80, 255, FaceFilter::Eyes));
-    filters.push_back(new FaceFilter(fedoraImg, 80, 255, FaceFilter::Hat));
+    //get all file names in a given directory
+    QDir directory("../../media/img");
+    QStringList images = directory.entryList(QStringList() << "*.png" << "*.jpg" << "*.jpeg",QDir::Files);
+    //create vectors of FaceFilter objects
+    for (int i = 0; i < images.size(); ++i) {
+        cv::Mat img = cv::imread("../../media/img/" + images[i].toStdString(), cv::IMREAD_UNCHANGED);
+        if(images[i].contains("glasses"))
+        {
+            glassesSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Glasses));
+        }
+        else if(images[i].contains("beard"))
+        {
+            beardSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Beard));
+        }
+        else if(images[i].contains("hat"))
+        {
+            hatSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Hat));
+        }
+        else if(images[i].contains("mask"))
+        {
+            maskSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Mask));
+        }
+        else if(images[i].contains("monocle"))
+        {
+            monocleSet.addFilter(new FaceFilter(img, 80, 255, FaceFilter::Monocle));
+        }
+    }
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    QLabel *label = new QLabel(this);
-    QPushButton *button = new QPushButton("Capture", this);
+    QLabel *cameraLabel = new QLabel(this);
+    QLabel *hatLabel = new QLabel(this);
+    QLabel *glassesLabel = new QLabel(this);
+    QLabel *beardLabel = new QLabel(this);
+    QLabel *monocleLabel = new QLabel(this);
+    QLabel *maskLabel = new QLabel(this);
+    QPushButton *hatButtonUp = new QPushButton("Hat>", this);
+    QPushButton *hatButtonDown = new QPushButton("<Hat", this);
+    QPushButton *glassesButtonUp = new QPushButton("Glasses>", this);
+    QPushButton *glassesButtonDown = new QPushButton("<Glasses", this);
+    QPushButton *beardButtonUp = new QPushButton("Beard>", this);
+    QPushButton *beardButtonDown = new QPushButton("<Beard", this);
+    QPushButton *monocleButtonUp = new QPushButton("Monocle>", this);
+    QPushButton *monocleButtonDown = new QPushButton("<Monocle", this);
+    QPushButton *maskButtonUp = new QPushButton("Mask>", this);
+    QPushButton *maskButtonDown = new QPushButton("<Mask", this);
 
-    layout->addWidget(label);
-    layout->addWidget(button);
+    layout->addWidget(cameraLabel);
+    layout->addWidget(hatButtonUp);
+    layout->addWidget(hatButtonDown);
+    layout->addWidget(glassesButtonUp);
+    layout->addWidget(glassesButtonDown);
+    layout->addWidget(beardButtonUp);
+    layout->addWidget(beardButtonDown);
+    layout->addWidget(monocleButtonUp);
+    layout->addWidget(monocleButtonDown);
+    layout->addWidget(maskButtonUp);
+    layout->addWidget(maskButtonDown);
 
+    
+
+    setLayout(layout);
     cv::VideoCapture capture;
     capture.open(0); // Open the default camera
 
@@ -40,19 +84,13 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
 
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, [=]() {
-        readCamera(label,capture);
-    });
-    connect(button, &QPushButton::clicked, [=]() {
-        timer->stop();
-        //capture.release();
-        cv::destroyAllWindows();
-        this->close();
+        readCamera(cameraLabel,capture);
     });
 
-    timer->start(100); // Start the timer to update the camera feed
+    timer->start(50); // Start the timer to update the camera feed
 }
 
-void CentralWidget::readCamera(QLabel *label,cv::VideoCapture capture) {
+void CentralWidget::readCamera(QLabel *cameraLabel,cv::VideoCapture capture) {
         cv::Mat frame,img;
         capture >> frame; // Read the next frame from the camera
         img = detectAndDraw(frame, cascade, eyesCascade,mouthCascade,noseCascade, scale);
@@ -62,7 +100,7 @@ void CentralWidget::readCamera(QLabel *label,cv::VideoCapture capture) {
         image = image.rgbSwapped();
 
         // Display the image in the label
-        label->setPixmap(QPixmap::fromImage(image));
+        cameraLabel->setPixmap(QPixmap::fromImage(image));
     }
 
 //write a function that will detect faces and draw moustache on them in the current frame and return combined frame
@@ -86,7 +124,7 @@ Mat CentralWidget::detectAndDraw(Mat& img, CascadeClassifier& cascade, CascadeCl
     equalizeHist(smallImg, smallImg);
 
     //detect faces of different sizes using cascade classifier object
-    cascade.detectMultiScale(smallImg, faces, 1.1, 3, 0 | CASCADE_SCALE_IMAGE, Size(50,50));
+    cascade.detectMultiScale(smallImg, faces, 1.1, 5, 0 | CASCADE_SCALE_IMAGE, Size(80,80));
 
     //iterate over the faces and draw a rectangle around them
     for (size_t i = 0; i < faces.size(); i++)
@@ -122,10 +160,12 @@ Mat CentralWidget::detectAndDraw(Mat& img, CascadeClassifier& cascade, CascadeCl
         //     cv::circle(img, center, radius, Scalar(0, 255, 0), 3, 8, 0);
 
         // }
-        for (size_t j = 0; j < filters.size(); j++)
-        {
-                (*filters[j]).apply(img, faces[i]);
-        }
+        
+        beardSet.currentFilter()->apply(img,faces[i]);      
+        glassesSet.currentFilter()->apply(img,faces[i]);
+        hatSet.currentFilter()->apply(img,faces[i]);
+        maskSet.currentFilter()->apply(img,faces[i]);
+        monocleSet.currentFilter()->apply(img,faces[i]);      
     }    
     //return the combined frame
     return img;
