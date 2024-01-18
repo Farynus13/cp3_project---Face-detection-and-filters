@@ -299,6 +299,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Oskar/Documents/cp3_project/include/baseFilter.h",
+			"MU",
+			"6YEA5652QU/moc_baseFilter.cpp",
+			null
+		],
+		[
 			"C:/Users/Oskar/Documents/cp3_project/include/centralWidget.h",
 			"MU",
 			"6YEA5652QU/moc_centralWidget.cpp",
@@ -308,6 +314,18 @@
 			"C:/Users/Oskar/Documents/cp3_project/include/faceFilter.h",
 			"MU",
 			"6YEA5652QU/moc_faceFilter.cpp",
+			null
+		],
+		[
+			"C:/Users/Oskar/Documents/cp3_project/include/filterSet.h",
+			"MU",
+			"6YEA5652QU/moc_filterSet.cpp",
+			null
+		],
+		[
+			"C:/Users/Oskar/Documents/cp3_project/include/fistFilter.h",
+			"MU",
+			"6YEA5652QU/moc_fistFilter.cpp",
 			null
 		],
 		[
@@ -476,12 +494,15 @@
 	"SETTINGS_FILE_Release" : "C:/Users/Oskar/Documents/cp3_project/build/CMakeFiles/cp3_project_autogen.dir/AutogenUsed_Release.txt",
 	"SOURCES" : 
 	[
+		[ "C:/Users/Oskar/Documents/cp3_project/src/baseFilter.cpp", "MU", null ],
 		[
 			"C:/Users/Oskar/Documents/cp3_project/src/centralWidget.cpp",
 			"MU",
 			null
 		],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/faceFilter.cpp", "MU", null ],
+		[ "C:/Users/Oskar/Documents/cp3_project/src/filterSet.cpp", "MU", null ],
+		[ "C:/Users/Oskar/Documents/cp3_project/src/fistFilter.cpp", "MU", null ],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/main.cpp", "MU", null ],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/mainWindow.cpp", "MU", null ]
 	],
