@@ -11,7 +11,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include "filterSet.h"
+#include "carousel.h"
 #include "faceFilter.h"
 #include "fistFilter.h"
 
@@ -20,20 +20,20 @@ class CentralWidget : public QWidget
     Q_OBJECT
     cv::CascadeClassifier cascade;
     cv::CascadeClassifier fistCascade;
-    FilterSet glassesSet;
-    FilterSet beardSet;
-    FilterSet hatSet;
-    FilterSet maskSet;
-    FilterSet monocleSet;
-    FilterSet gloveSet;
-    FilterSet puppetSet;
+    Carousel<BaseFilter> glassesCarousel;
+    Carousel<BaseFilter> beardCarousel;
+    Carousel<BaseFilter> hatCarousel;
+    Carousel<BaseFilter> maskCarousel;
+    Carousel<BaseFilter> monocleCarousel;
+    Carousel<BaseFilter> gloveCarousel;
+    Carousel<BaseFilter> puppetCarousel;
 public:
     CentralWidget(QWidget *parent = nullptr);
 private:
     cv::Mat detectAndDraw(cv::Mat& img);
     void readCamera(QLabel *label,cv::VideoCapture capture);
     void chooseEyes(std::vector<cv::Rect> &eyes, cv::Mat& faceROI);
-    void updateFilterLabel(QLabel *label, FilterSet *filterSet);
+    void updateFilterLabel(QLabel *label, Carousel<BaseFilter> *filterCarousel);
 };
 
 #endif // CENTRALWIDGET_H

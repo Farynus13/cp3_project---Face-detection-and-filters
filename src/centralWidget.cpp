@@ -10,49 +10,49 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     //get all file names in a given directory
     QDir directory("../../media/img");
     QStringList images = directory.entryList(QStringList() << "*.png" << "*.jpg" << "*.jpeg",QDir::Files);
-    //fill FilterSets with images
+    //fill filterCarousel with images
     for (int i = 0; i < images.size(); ++i) {
         cv::Mat img = cv::imread("../../media/img/" + images[i].toStdString(), cv::IMREAD_UNCHANGED);
         if(images[i].contains("glasses"))
         {
-            glassesSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Glasses));
+            glassesCarousel.addNode(new FaceFilter(img, 100, 255, FaceFilter::Glasses));
         }
         else if(images[i].contains("beard"))
         {
-            beardSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Beard));
+            beardCarousel.addNode(new FaceFilter(img, 100, 255, FaceFilter::Beard));
         }
         else if(images[i].contains("hat"))
         {
-            hatSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Hat));
+            hatCarousel.addNode(new FaceFilter(img, 100, 255, FaceFilter::Hat));
         }
         else if(images[i].contains("mask"))
         {
-            maskSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Mask));
+            maskCarousel.addNode(new FaceFilter(img, 100, 255, FaceFilter::Mask));
         }
         else if(images[i].contains("monocle"))
         {
-            monocleSet.addFilter(new FaceFilter(img, 100, 255, FaceFilter::Monocle));
+            monocleCarousel.addNode(new FaceFilter(img, 100, 255, FaceFilter::Monocle));
         }
         else if(images[i].contains("fist"))
         {
             if(images[i].contains("glove"))
             {
-                gloveSet.addFilter(new FistFilter(img, 200, 255, FistFilter::Glove));
+                gloveCarousel.addNode(new FistFilter(img, 200, 255, FistFilter::Glove));
             }
             else if(images[i].contains("puppet"))
             {
-                puppetSet.addFilter(new FistFilter(img, 200,255, FistFilter::Puppet));
+                puppetCarousel.addNode(new FistFilter(img, 200,255, FistFilter::Puppet));
             }
         }
         else if(images[i].contains("empty"))
         {
-            glassesSet.addFilter(new FaceFilter(img, 0, 255, FaceFilter::Empty));
-            beardSet.addFilter(new FaceFilter(img, 0, 255, FaceFilter::Empty));
-            hatSet.addFilter(new FaceFilter(img, 0, 255, FaceFilter::Empty));
-            maskSet.addFilter(new FaceFilter(img, 0, 255, FaceFilter::Empty));
-            monocleSet.addFilter(new FaceFilter(img, 0, 255, FaceFilter::Empty));
-            gloveSet.addFilter(new FistFilter(img, 0, 255, FistFilter::Empty));
-            puppetSet.addFilter(new FistFilter(img, 0, 255, FistFilter::Empty));
+            glassesCarousel.addNode(new FaceFilter(img, 0, 255, FaceFilter::Empty));
+            beardCarousel.addNode(new FaceFilter(img, 0, 255, FaceFilter::Empty));
+            hatCarousel.addNode(new FaceFilter(img, 0, 255, FaceFilter::Empty));
+            maskCarousel.addNode(new FaceFilter(img, 0, 255, FaceFilter::Empty));
+            monocleCarousel.addNode(new FaceFilter(img, 0, 255, FaceFilter::Empty));
+            gloveCarousel.addNode(new FistFilter(img, 0, 255, FistFilter::Empty));
+            puppetCarousel.addNode(new FistFilter(img, 0, 255, FistFilter::Empty));
         }
     }
     //create layout
@@ -130,99 +130,97 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     }
 
     //create a timer
-    //create a timer
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, [=]() {
-        readCamera(cameraLabel,capture);
         readCamera(cameraLabel,capture);
     });
 
     timer->start(50); // Start the timer to update the camera feed
 
     //set initial filter images
-    updateFilterLabel(hatLabel, &hatSet);
-    updateFilterLabel(glassesLabel, &glassesSet);
-    updateFilterLabel(beardLabel, &beardSet);
-    updateFilterLabel(monocleLabel, &monocleSet);
-    updateFilterLabel(maskLabel, &maskSet);
-    updateFilterLabel(gloveLabel, &gloveSet);
-    updateFilterLabel(puppetLabel, &puppetSet);
+    updateFilterLabel(hatLabel, &hatCarousel);
+    updateFilterLabel(glassesLabel, &glassesCarousel);
+    updateFilterLabel(beardLabel, &beardCarousel);
+    updateFilterLabel(monocleLabel, &monocleCarousel);
+    updateFilterLabel(maskLabel, &maskCarousel);
+    updateFilterLabel(gloveLabel, &gloveCarousel);
+    updateFilterLabel(puppetLabel, &puppetCarousel);
 
     //connect buttons to functions
     connect(hatButtonUp, &QPushButton::clicked, [=]() {
-        hatSet.indexUp();
-        updateFilterLabel(hatLabel, &hatSet);
+        hatCarousel.indexUp();
+        updateFilterLabel(hatLabel, &hatCarousel);
     });
 
     connect(hatButtonDown, &QPushButton::clicked, [=]() {
-        hatSet.indexDown();
-        updateFilterLabel(hatLabel, &hatSet);
+        hatCarousel.indexDown();
+        updateFilterLabel(hatLabel, &hatCarousel);
     });
 
     connect(glassesButtonUp, &QPushButton::clicked, [=]() {
-        glassesSet.indexUp();
-        updateFilterLabel(glassesLabel, &glassesSet);
+        glassesCarousel.indexUp();
+        updateFilterLabel(glassesLabel, &glassesCarousel);
     });
 
     connect(glassesButtonDown, &QPushButton::clicked, [=]() {
-        glassesSet.indexDown();
-        updateFilterLabel(glassesLabel, &glassesSet);
+        glassesCarousel.indexDown();
+        updateFilterLabel(glassesLabel, &glassesCarousel);
     });
 
     connect(beardButtonUp, &QPushButton::clicked, [=]() {
-        beardSet.indexUp();
-        updateFilterLabel(beardLabel, &beardSet);
+        beardCarousel.indexUp();
+        updateFilterLabel(beardLabel, &beardCarousel);
     });
 
     connect(beardButtonDown, &QPushButton::clicked, [=]() {
-        beardSet.indexDown();
-        updateFilterLabel(beardLabel, &beardSet);
+        beardCarousel.indexDown();
+        updateFilterLabel(beardLabel, &beardCarousel);
     });
 
     connect(monocleButtonUp, &QPushButton::clicked, [=]() {
-        monocleSet.indexUp();
-        updateFilterLabel(monocleLabel, &monocleSet);
+        monocleCarousel.indexUp();
+        updateFilterLabel(monocleLabel, &monocleCarousel);
     });
 
     connect(monocleButtonDown, &QPushButton::clicked, [=]() {
-        monocleSet.indexDown();
-        updateFilterLabel(monocleLabel, &monocleSet);
+        monocleCarousel.indexDown();
+        updateFilterLabel(monocleLabel, &monocleCarousel);
     });
 
     connect(maskButtonUp, &QPushButton::clicked, [=]() {
-        maskSet.indexUp();
-        updateFilterLabel(maskLabel, &maskSet);
+        maskCarousel.indexUp();
+        updateFilterLabel(maskLabel, &maskCarousel);
     });
 
     connect(maskButtonDown, &QPushButton::clicked, [=]() {
-        maskSet.indexDown();
-        updateFilterLabel(maskLabel, &maskSet);
+        maskCarousel.indexDown();
+        updateFilterLabel(maskLabel, &maskCarousel);
     });
 
     connect(gloveButtonUp, &QPushButton::clicked, [=]() {
-        gloveSet.indexUp();
-        updateFilterLabel(gloveLabel, &gloveSet);
+        gloveCarousel.indexUp();
+        updateFilterLabel(gloveLabel, &gloveCarousel);
     });
 
     connect(gloveButtonDown, &QPushButton::clicked, [=]() {
-        gloveSet.indexDown();
-        updateFilterLabel(gloveLabel, &gloveSet);
+        gloveCarousel.indexDown();
+        updateFilterLabel(gloveLabel, &gloveCarousel);
     });
 
     connect(puppetButtonUp, &QPushButton::clicked, [=]() {
-        puppetSet.indexUp();
-        updateFilterLabel(puppetLabel, &puppetSet);
+        puppetCarousel.indexUp();
+        updateFilterLabel(puppetLabel, &puppetCarousel);
     });
 
     connect(puppetButtonDown, &QPushButton::clicked, [=]() {
-        puppetSet.indexDown();
-        updateFilterLabel(puppetLabel, &puppetSet);
+        puppetCarousel.indexDown();
+        updateFilterLabel(puppetLabel, &puppetCarousel);
     });
 }
 
-void CentralWidget::updateFilterLabel(QLabel *label, FilterSet *filterSet) {
+void CentralWidget::updateFilterLabel(QLabel *label, Carousel<BaseFilter> *filterCarousel) {
     //Get the current filter image
-    Mat img = filterSet->currentFilter()->getImg().clone();
+    Mat img = filterCarousel->currentNode()->getImg().clone();
     // Convert the frame to QImage for display
     QImage image(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888);
     image = image.rgbSwapped();
@@ -266,27 +264,34 @@ Mat CentralWidget::detectAndDraw(Mat& img)
     //detect faces of different sizes using cascade classifier object
     cascade.detectMultiScale(gray, faces, 1.1, 5, 0 | CASCADE_SCALE_IMAGE, Size(80,80));
     fistCascade.detectMultiScale(gray, fists, 1.1, 2, 0 | CASCADE_SCALE_IMAGE, Size(80,80));
-
-    for (size_t i = 0; i < fists.size(); i++)
+    try
     {
-        //draw a rectangle around the detected fist
-        rectangle(img, Point(cvRound(fists[i].x), cvRound(fists[i].y)), Point(cvRound((fists[i].x + fists[i].width - 1)), cvRound((fists[i].y + fists[i].height - 1))), Scalar(0, 255, 0), 3, 8, 0);
-        gloveSet.currentFilter()->apply(img,fists[i]);
-        puppetSet.currentFilter()->apply(img,fists[i]);
+        for (size_t i = 0; i < fists.size(); i++)
+        {
+            //draw a rectangle around the detected fist
+            rectangle(img, Point(cvRound(fists[i].x), cvRound(fists[i].y)), Point(cvRound((fists[i].x + fists[i].width - 1)), cvRound((fists[i].y + fists[i].height - 1))), Scalar(0, 255, 0), 3, 8, 0);
+            gloveCarousel.currentNode()->apply(img,fists[i]);
+            puppetCarousel.currentNode()->apply(img,fists[i]);
+        }
+        //iterate over the faces and draw filters around them
+        for (size_t i = 0; i < faces.size(); i++)
+        {
+            //draw a rectangle around the detected face
+            //rectangle(img, Point(cvRound(faces[i].x), cvRound(faces[i].y)), Point(cvRound((faces[i].x + faces[i].width - 1)), cvRound((faces[i].y + faces[i].height - 1))), Scalar(255, 0, 0), 3, 8, 0);
+
+            //apply filters
+            maskCarousel.currentNode()->apply(img,faces[i]);
+            beardCarousel.currentNode()->apply(img,faces[i]);      
+            glassesCarousel.currentNode()->apply(img,faces[i]);
+            monocleCarousel.currentNode()->apply(img,faces[i]);      
+            hatCarousel.currentNode()->apply(img,faces[i]);
+        }    
+    } //exception for trying to merge with empty Mat
+    catch (cv::Exception& e)
+    {
+        const char* err_msg = e.what();
+        std::cout << "exception caught: " << err_msg << std::endl;
     }
-    //iterate over the faces and draw filters around them
-    for (size_t i = 0; i < faces.size(); i++)
-    {
-        //draw a rectangle around the detected face
-        //rectangle(img, Point(cvRound(faces[i].x), cvRound(faces[i].y)), Point(cvRound((faces[i].x + faces[i].width - 1)), cvRound((faces[i].y + faces[i].height - 1))), Scalar(255, 0, 0), 3, 8, 0);
-
-        //apply filters
-        maskSet.currentFilter()->apply(img,faces[i]);
-        beardSet.currentFilter()->apply(img,faces[i]);      
-        glassesSet.currentFilter()->apply(img,faces[i]);
-        monocleSet.currentFilter()->apply(img,faces[i]);      
-        hatSet.currentFilter()->apply(img,faces[i]);
-    }    
     //return the combined frame
     return img;
 }

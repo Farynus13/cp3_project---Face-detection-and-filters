@@ -278,8 +278,8 @@ C:/Users/Oskar/Documents/cp3_project/include/centralWidget.h
  mdp:C:/Users/Oskar/Documents/opencv/build/include/opencv2/video/tracking.hpp
  mdp:C:/Users/Oskar/Documents/opencv/build/include/opencv2/videoio.hpp
 C:/Users/Oskar/Documents/cp3_project/include/faceFilter.h
-C:/Users/Oskar/Documents/cp3_project/include/filterSet.h
 C:/Users/Oskar/Documents/cp3_project/src/centralWidget.cpp
+C:/Users/Oskar/Documents/cp3_project/include/filterSet.h
 C:/Users/Oskar/Documents/cp3_project/src/faceFilter.cpp
 C:/Users/Oskar/Documents/cp3_project/include/fistFilter.h
 C:/Users/Oskar/Documents/cp3_project/include/mainWindow.h

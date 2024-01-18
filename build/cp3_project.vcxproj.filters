@@ -7,13 +7,13 @@
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\baseFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\carousel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\faceFilter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\filterSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\fistFilter.cpp">
@@ -39,13 +39,13 @@
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\baseFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\carousel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\faceFilter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\filterSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\fistFilter.h">

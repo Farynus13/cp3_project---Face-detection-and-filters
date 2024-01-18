@@ -399,15 +399,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\baseFilter.h" />
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\carousel.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\faceFilter.h" />
-    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\filterSet.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\fistFilter.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\baseFilter.cpp" />
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\carousel.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\faceFilter.cpp" />
-    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\filterSet.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\fistFilter.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\main.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\mainWindow.cpp" />
