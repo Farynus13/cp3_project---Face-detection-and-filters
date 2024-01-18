@@ -13,12 +13,12 @@ public:
     ~FilterSet();
 
     // Member functions
-    void addFilter(FaceFilter *filterId);
-    FaceFilter* currentFilter(); // Returns the current filter
+    void addFilter(BaseFilter *filterId);
+    BaseFilter* currentFilter(); // Returns the current filter
     void indexUp(); // Increments the index
     void indexDown(); // Decrements the index
 private:
-    std::vector<FaceFilter*> filters; // Vector of filters
+    std::vector<BaseFilter*> filters; // Vector of filters
     int index;
 };
 

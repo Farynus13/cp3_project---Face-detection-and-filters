@@ -4,6 +4,9 @@
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\build\cp3_project_autogen\mocs_compilation_Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\baseFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -11,6 +14,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\filterSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\fistFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\main.cpp">
@@ -30,6 +36,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\baseFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -37,6 +46,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\filterSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\fistFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h">

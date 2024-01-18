@@ -4,8 +4,9 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include "baseFilter.h"
 
-class FaceFilter {
+class FaceFilter: public BaseFilter{
 public:
 // Enumerated type for the different filters
     enum FilterType {
@@ -18,26 +19,13 @@ public:
     };
 
 private:
-    //threshold values
-    int threshMax;
-    int threshMin;
-
-    cv::Mat mask; // Mask for the filter
+    
     FilterType type; // Type of filter
-
-protected:
-    //image for filter
-    cv::Mat img;
-    //offsets and factors for filter placement
-    double yOffset;
-    double yFactor;
-    double xOffset;
-    double xFactor;
     
 public:
     FaceFilter(cv::Mat img, int threshMin, int threshMax, FilterType type); // Constructor
-    void apply(cv::Mat& frame,const cv::Rect &face); // Applies the filter to the frame
-    cv::Mat getImg() { return img; } // Returns the filter image
+    cv::Rect getFilterROI(const cv::Rect& filterROI) override;// Returns the filter ROI
+    bool isFilterEmpty() override { return type == Empty; } // Returns true if the filter is empty};
+    bool isOutOfFrame(const cv::Mat& frame, const cv::Rect& roi) override; // Returns true if the filter is out of frame
 };
-
 #endif  //FACEFILTER_H

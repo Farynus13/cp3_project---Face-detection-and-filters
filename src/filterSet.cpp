@@ -22,13 +22,13 @@ void FilterSet::indexDown()
     }
 }   
 
-FaceFilter* FilterSet::currentFilter()
+BaseFilter* FilterSet::currentFilter()
 {
     return filters[index];
 }
 
 // Member function implementations
-void FilterSet::addFilter(FaceFilter *filter) {
+void FilterSet::addFilter(BaseFilter *filter) {
     // Add the filter to the set
     filters.push_back(filter);
 }

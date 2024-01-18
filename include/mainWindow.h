@@ -11,6 +11,8 @@ public:
         CentralWidget *centralWidget = new CentralWidget(this);
         setCentralWidget(centralWidget);
         this->setWindowTitle("Face Detection");
+        //make window fill screen
+        this->setWindowState(Qt::WindowMaximized);
     }
 };
 
