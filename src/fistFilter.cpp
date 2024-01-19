@@ -1,7 +1,7 @@
 #include "fistFilter.h"
 
-FistFilter::FistFilter(cv::Mat img, int threshMin, int threshMax, FilterType type): 
-    BaseFilter(img, threshMin, threshMax), type(type)
+FistFilter::FistFilter(cv::Mat img, int threshMin, int threshMax, FilterType type, std::string name): 
+    BaseFilter(img, threshMin, threshMax, name), type(type)
 {
     //set the offsets and factors
     switch(type)

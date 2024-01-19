@@ -163,9 +163,11 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/qtwidgetsglobal.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/qwidget.h \
   C:/Users/Oskar/Documents/cp3_project/include/baseFilter.h \
+  C:/Users/Oskar/Documents/cp3_project/include/carousel.h \
   C:/Users/Oskar/Documents/cp3_project/include/faceFilter.h \
   C:/Users/Oskar/Documents/cp3_project/include/filterSet.h \
   C:/Users/Oskar/Documents/cp3_project/include/fistFilter.h \
+  C:/Users/Oskar/Documents/cp3_project/include/updateLabelInterface.h \
   C:/Users/Oskar/Documents/opencv/build/include/opencv2/calib3d.hpp \
   C:/Users/Oskar/Documents/opencv/build/include/opencv2/core.hpp \
   C:/Users/Oskar/Documents/opencv/build/include/opencv2/core/affine.hpp \

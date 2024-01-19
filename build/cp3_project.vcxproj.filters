@@ -48,10 +48,16 @@
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\faceFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\filterSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\fistFilter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\updateLabelInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
