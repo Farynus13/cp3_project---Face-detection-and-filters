@@ -4,8 +4,9 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-
-class BaseFilter {
+#include "updateLabelInterface.h"
+#include <QLabel>
+class BaseFilter: public UpdateLabelInterface{
 public:
 protected:
     // Threshold values
@@ -19,15 +20,18 @@ protected:
     double yFactor;
     double xOffset;
     double xFactor;
+    std::string name;
 
 public:
-    BaseFilter(cv::Mat img, int threshMin, int threshMax): 
-        img(img.clone()), threshMin(threshMin), threshMax(threshMax) {} // Constructor
+    BaseFilter(cv::Mat img, int threshMin, int threshMax, std::string name): 
+        img(img.clone()), threshMin(threshMin), threshMax(threshMax), name(name) {} // Constructor
     void apply(cv::Mat& frame, const cv::Rect& roi); // Applies the filter to the frame
     virtual cv::Rect getFilterROI(const cv::Rect& filterROI) = 0; // Returns the filter ROI
     virtual bool isFilterEmpty() = 0; // Returns true if the filter is empty
     virtual bool isOutOfFrame(const cv::Mat& frame, const cv::Rect& roi) = 0; // Returns true if the filter is out of frame
     cv::Mat getImg() { return img; } // Returns the filter image
+    void update(QLabel *label) override;
+    std::string getName() const { return name; }
 };
 
 #endif  // IMAGEFILTER_H

@@ -323,6 +323,12 @@
 			null
 		],
 		[
+			"C:/Users/Oskar/Documents/cp3_project/include/filterSet.h",
+			"MU",
+			"6YEA5652QU/moc_filterSet.cpp",
+			null
+		],
+		[
 			"C:/Users/Oskar/Documents/cp3_project/include/fistFilter.h",
 			"MU",
 			"6YEA5652QU/moc_fistFilter.cpp",
@@ -332,6 +338,12 @@
 			"C:/Users/Oskar/Documents/cp3_project/include/mainWindow.h",
 			"MU",
 			"6YEA5652QU/moc_mainWindow.cpp",
+			null
+		],
+		[
+			"C:/Users/Oskar/Documents/cp3_project/include/updateLabelInterface.h",
+			"MU",
+			"6YEA5652QU/moc_updateLabelInterface.cpp",
 			null
 		]
 	],

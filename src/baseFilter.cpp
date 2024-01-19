@@ -30,3 +30,15 @@ void BaseFilter::apply(cv::Mat& frame,const cv::Rect &roi)
         dst.copyTo(imgROI);
    }
 }
+
+void BaseFilter::update(QLabel *label)
+{
+    cv::Mat img = getImg().clone();
+    // Convert the frame to QImage for display
+    QImage image(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888);
+    image = image.rgbSwapped();
+    //set image size 150x150
+    image = image.scaled(150,150,Qt::KeepAspectRatio);
+    // Display the image in the label
+    label->setPixmap(QPixmap::fromImage(image));
+}

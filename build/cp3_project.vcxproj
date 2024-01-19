@@ -402,8 +402,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\carousel.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\faceFilter.h" />
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\filterSet.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\fistFilter.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h" />
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\updateLabelInterface.h" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\baseFilter.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\carousel.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp" />

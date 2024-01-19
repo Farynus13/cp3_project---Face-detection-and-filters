@@ -14,6 +14,7 @@
 #include "carousel.h"
 #include "faceFilter.h"
 #include "fistFilter.h"
+#include "filterSet.h"
 
 class CentralWidget : public QWidget
 {
@@ -27,13 +28,12 @@ class CentralWidget : public QWidget
     Carousel<BaseFilter> monocleCarousel;
     Carousel<BaseFilter> gloveCarousel;
     Carousel<BaseFilter> puppetCarousel;
+    Carousel<FilterSet> filterSetCarousel;
 public:
     CentralWidget(QWidget *parent = nullptr);
 private:
     cv::Mat detectAndDraw(cv::Mat& img);
     void readCamera(QLabel *label,cv::VideoCapture capture);
-    void chooseEyes(std::vector<cv::Rect> &eyes, cv::Mat& faceROI);
-    void updateFilterLabel(QLabel *label, Carousel<BaseFilter> *filterCarousel);
 };
 
 #endif // CENTRALWIDGET_H

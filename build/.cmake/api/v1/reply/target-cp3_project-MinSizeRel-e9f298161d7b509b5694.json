@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Release/cp3_project.exe"
+			"path" : "MinSizeRel/cp3_project.exe"
 		},
 		{
-			"path" : "Release/cp3_project.pdb"
+			"path" : "MinSizeRel/cp3_project.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -184,7 +184,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -std:c++17 -MD"
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O1 /Ob1 /DNDEBUG -std:c++17 -MD"
 				},
 				{
 					"backtrace" : 2,
@@ -252,7 +252,7 @@
 				},
 				{
 					"backtrace" : 0,
-					"path" : "C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Release"
+					"path" : "C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_MinSizeRel"
 				},
 				{
 					"backtrace" : 23,
@@ -310,13 +310,13 @@
 			"sourceIndexes" : 
 			[
 				0,
-				7,
-				8,
 				9,
 				10,
 				11,
 				12,
-				13
+				13,
+				14,
+				15
 			]
 		}
 	],
@@ -332,7 +332,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD",
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O1 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
@@ -485,13 +485,13 @@
 			"sourceIndexes" : 
 			[
 				0,
-				7,
-				8,
 				9,
 				10,
 				11,
 				12,
-				13
+				13,
+				14,
+				15
 			]
 		},
 		{
@@ -503,7 +503,9 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7,
+				8
 			]
 		}
 	],
@@ -513,7 +515,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/cp3_project_autogen/mocs_compilation_Release.cpp",
+			"path" : "build/cp3_project_autogen/mocs_compilation_MinSizeRel.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -538,12 +540,22 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "include/filterSet.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"path" : "include/fistFilter.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"path" : "include/mainWindow.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/updateLabelInterface.h",
 			"sourceGroupIndex" : 1
 		},
 		{

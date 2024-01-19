@@ -23,7 +23,7 @@ private:
     FilterType type; // Type of filter
     
 public:
-    FaceFilter(cv::Mat img, int threshMin, int threshMax, FilterType type); // Constructor
+    FaceFilter(cv::Mat img, int threshMin, int threshMax, FilterType type, std::string name); // Constructor
     cv::Rect getFilterROI(const cv::Rect& filterROI) override;// Returns the filter ROI
     bool isFilterEmpty() override { return type == Empty; } // Returns true if the filter is empty};
     bool isOutOfFrame(const cv::Mat& frame, const cv::Rect& roi) override; // Returns true if the filter is out of frame
