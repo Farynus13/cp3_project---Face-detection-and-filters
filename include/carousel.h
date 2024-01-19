@@ -101,14 +101,7 @@ T* Carousel<T>::getNode(std::string name) {
         }
     }
 
-    std::cerr << "No node with name " << name << " found" << std::endl;
-    //available in
-    std::cerr << "Available nodes: " << std::endl;
-    for(int i = 0; i < nodes.size(); i++)
-    {
-        std::cerr << nodes[i]->getName() << std::endl;
-    }
-    return nullptr;
+    throw std::runtime_error("No node with name " + name + " found");
 }
 
 //set node by index
@@ -132,13 +125,7 @@ void Carousel<T>::setNode(std::string name) {
             return;
         }
     }
-    std::cerr << "No node with name " << name << " found" << std::endl;
-    //available in
-    std::cerr << "Available nodes: " << std::endl;
-    for(int i = 0; i < nodes.size(); i++)
-    {
-        std::cerr << nodes[i]->getName() << std::endl;
-    }
+    throw std::runtime_error("No node with name " + name + " found");
 }
 
 template<typename T>

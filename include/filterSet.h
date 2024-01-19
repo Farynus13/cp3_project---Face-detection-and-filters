@@ -14,13 +14,10 @@ private:
         const std::string name;
 
     public:
-        // Default constructor
-
         FilterSet() {}
 
         FilterSet(std::string name, std::map<std::string,Carousel<BaseFilter>*> carousels) : name(name), carousels(carousels) {}
 
-        // Constructor that initializes the filters vector with a given vector
         FilterSet(std::map<std::string,BaseFilter*> filters,std::string name, std::map<std::string,Carousel<BaseFilter>*> carousels) :
                  filters(filters), name(name), carousels(carousels) {}
 
@@ -42,9 +39,21 @@ private:
     void update(QLabel *label) override
     {
         label->setText(QString::fromStdString(getName()));
+        //make text bigger
+        QFont font = label->font();
+        font.setPointSize(20);
+        label->setFont(font);  
         for (auto& carousel : carousels)
         {
-            carousel.second->setNode(filters[carousel.first]->getName());
+            try
+            {
+                carousel.second->setNode(filters[carousel.first]->getName());
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+            
         }
     }
 
