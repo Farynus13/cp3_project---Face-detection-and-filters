@@ -167,6 +167,8 @@ Carousel<T>::~Carousel() {
     delete label;
     delete buttonUp;
     delete buttonDown;
+    delete layout;
+    delete carouselWidget;
 }
 
 #endif  // CAROUSEL_H

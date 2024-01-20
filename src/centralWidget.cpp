@@ -14,46 +14,8 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     //load filters
     loadFilters();
 
-    //create a map of <string,string> to initialize the filterSets
-    std::map<std::string,std::string> set1 = {
-        {"hat","01"},
-        {"glasses","01"},
-        {"beard","01"},
-        {"monocle","empty"},
-        {"mask","empty"},
-        {"glove","empty"},
-        {"puppet","01"}
-    };
-
-    std::map<std::string,std::string> set2 = {
-        {"hat","05"},
-        {"glasses","empty"},
-        {"beard","02"},
-        {"monocle","01"},
-        {"mask","empty"},
-        {"glove","empty"},
-        {"puppet","empty"}
-    };
-
-    std::map<std::string,std::string> set3 = {
-        {"hat","05"},
-        {"glasses","empty"},
-        {"beard","01"},
-        {"monocle","empty"},
-        {"mask","03"},
-        {"glove","empty"},
-        {"puppet","empty"}
-    };
-    
-
-    //fill filterSetCarousel with filterSets
-    FilterSet* filterSet1 = new FilterSet("Italian Mafia",filterCarouselMap,set1);
-    FilterSet* filterSet2 = new FilterSet("French Lord",filterCarouselMap,set2);
-    FilterSet* filterSet3 = new FilterSet("Fancy Zulu",filterCarouselMap,set3);
-
-    filterSetCarousel->addNode(filterSet1);
-    filterSetCarousel->addNode(filterSet2);
-    filterSetCarousel->addNode(filterSet3);
+    //create filter sets
+    createSets();
 
     capture.open(0); // Open the default camera
 
@@ -218,4 +180,48 @@ void CentralWidget::createLayout()
     layout->addWidget(cameraLabel, 0, 0, 3, filterCarouselMap.size());
     //set layout
     setLayout(layout);
+}
+
+void CentralWidget::createSets()
+{
+    //create a map of <string,string> to initialize the filterSets
+    std::map<std::string,std::string> set1 = {
+        {"hat","01"},
+        {"glasses","01"},
+        {"beard","01"},
+        {"monocle","empty"},
+        {"mask","empty"},
+        {"glove","empty"},
+        {"puppet","01"}
+    };
+
+    std::map<std::string,std::string> set2 = {
+        {"hat","05"},
+        {"glasses","empty"},
+        {"beard","02"},
+        {"monocle","01"},
+        {"mask","empty"},
+        {"glove","empty"},
+        {"puppet","empty"}
+    };
+
+    std::map<std::string,std::string> set3 = {
+        {"hat","05"},
+        {"glasses","empty"},
+        {"beard","01"},
+        {"monocle","empty"},
+        {"mask","03"},
+        {"glove","empty"},
+        {"puppet","empty"}
+    };
+    
+
+    //fill filterSetCarousel with filterSets
+    FilterSet* filterSet1 = new FilterSet("Italian Mafia",filterCarouselMap,set1);
+    FilterSet* filterSet2 = new FilterSet("French Lord",filterCarouselMap,set2);
+    FilterSet* filterSet3 = new FilterSet("Fancy Zulu",filterCarouselMap,set3);
+
+    filterSetCarousel->addNode(filterSet1);
+    filterSetCarousel->addNode(filterSet2);
+    filterSetCarousel->addNode(filterSet3);
 }

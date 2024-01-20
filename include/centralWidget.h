@@ -39,6 +39,7 @@ private:
     void readCamera(QLabel *label); //reads camera and displays it on label
     void loadFilters(); //loads filters from filters folder
     void createLayout(); //creates the layout of the central widget
+    void createSets();
 };
 
 #endif // CENTRALWIDGET_H
