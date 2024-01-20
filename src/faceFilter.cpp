@@ -25,10 +25,10 @@ FaceFilter::FaceFilter(cv::Mat img, int threshMin, int threshMax, std::string ty
         xFactor = 1.2;
     } else if(type == "mask")
     {
-        yOffset = -0.2;
-        yFactor = 1.0;
-        xOffset = 0;
-        xFactor = 1;
+        yOffset = -0.25;
+        yFactor = 1.5;
+        xOffset = -0.75;
+        xFactor = 2.5;
     } else if(type == "monocle")
     {
         yOffset = 2.2 / 10.0;

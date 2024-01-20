@@ -31,23 +31,37 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
         {"beard","02"},
         {"monocle","01"},
         {"mask","empty"},
-        {"glove","02"},
+        {"glove","empty"},
         {"puppet","empty"}
     };
 
+    std::map<std::string,std::string> set3 = {
+        {"hat","05"},
+        {"glasses","empty"},
+        {"beard","01"},
+        {"monocle","empty"},
+        {"mask","03"},
+        {"glove","empty"},
+        {"puppet","empty"}
+    };
+    
+
     //fill filterSetCarousel with filterSets
-    FilterSet* filterSet1 = new FilterSet("Filter Set 1",filterCarouselMap,set1);
-    FilterSet* filterSet2 = new FilterSet("Filter Set 2",filterCarouselMap,set2);
+    FilterSet* filterSet1 = new FilterSet("Italian Mafia",filterCarouselMap,set1);
+    FilterSet* filterSet2 = new FilterSet("French Lord",filterCarouselMap,set2);
+    FilterSet* filterSet3 = new FilterSet("Fancy Zulu",filterCarouselMap,set3);
+
     filterSetCarousel->addNode(filterSet1);
     filterSetCarousel->addNode(filterSet2);
+    filterSetCarousel->addNode(filterSet3);
 
     capture.open(0); // Open the default camera
 
     //load the cascade classifier objects
     cascade.load("haarcascade_frontalface_alt.xml");
-    fistCascade.load("fist.xml");
+    fistCascade.load("hand.xml");
     //check if the cascade classifier object is empty
-    if (cascade.empty() or fistCascade.empty())
+    if (cascade.empty() || fistCascade.empty())
     {
         std:: cerr << "ERROR: Could not load classifier cascade" << std::endl;
     }
@@ -106,6 +120,7 @@ Mat CentralWidget::detectAndDraw(Mat& img)
             filterCarouselMap["glove"]->currentNode()->apply(img,fists[i]);
             filterCarouselMap["puppet"]->currentNode()->apply(img,fists[i]);
         }
+        
         //iterate over the faces and draw filters around them
         for (size_t i = 0; i < faces.size(); i++)
         {
@@ -113,11 +128,11 @@ Mat CentralWidget::detectAndDraw(Mat& img)
             rectangle(img, Point(cvRound(faces[i].x), cvRound(faces[i].y)), Point(cvRound((faces[i].x + faces[i].width - 1)), cvRound((faces[i].y + faces[i].height - 1))), Scalar(255, 0, 0), 3, 8, 0);
 
             //apply filters
+            filterCarouselMap["mask"]->currentNode()->apply(img,faces[i]);
             filterCarouselMap["hat"]->currentNode()->apply(img,faces[i]);
             filterCarouselMap["glasses"]->currentNode()->apply(img,faces[i]);
             filterCarouselMap["beard"]->currentNode()->apply(img,faces[i]);
             filterCarouselMap["monocle"]->currentNode()->apply(img,faces[i]);
-            filterCarouselMap["mask"]->currentNode()->apply(img,faces[i]);
 
         }    
     } //exception for trying to merge with empty Mat
@@ -163,7 +178,8 @@ void CentralWidget::loadFilters()
                     tr_down = 200;
                     filterCarouselMap[category]->addNode(new FistFilter(img, tr_down, 255, category,name));
                 } else {
-                    tr_down = 100;
+                        tr_down = 200;
+                    
                     filterCarouselMap[category]->addNode(new FaceFilter(img, tr_down, 255, category,name));
                 }
             } 
