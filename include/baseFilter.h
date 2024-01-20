@@ -20,6 +20,7 @@ protected:
     double yFactor;
     double xOffset;
     double xFactor;
+    // Name of the filter
     std::string name;
 
 public:
@@ -30,8 +31,10 @@ public:
     virtual bool isFilterEmpty() = 0; // Returns true if the filter is empty
     virtual bool isOutOfFrame(const cv::Mat& frame, const cv::Rect& roi) = 0; // Returns true if the filter is out of frame
     cv::Mat getImg() { return img; } // Returns the filter image
-    void update(QLabel *label) override;
-    std::string getName() const { return name; }
+    void update(QLabel *label) override; // Updates the label with the filter image
+    std::string getName() const { return name; } // Returns the name of the filter
+    virtual ~BaseFilter() = default;
+
 };
 
 #endif  // IMAGEFILTER_H

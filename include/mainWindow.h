@@ -8,9 +8,10 @@
 class MainWindow : public QMainWindow {
 public:
     MainWindow(QWidget *parent = nullptr) : QMainWindow(parent) {
+        //central widget contains all other widgets
         CentralWidget *centralWidget = new CentralWidget(this);
         setCentralWidget(centralWidget);
-        this->setWindowTitle("Face Detection");
+        this->setWindowTitle("Filter App");
         //make window fill screen
         this->setWindowState(Qt::WindowMaximized);
     }

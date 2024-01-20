@@ -1,9 +1,10 @@
 #ifndef CENTRALWIDGET_H
 #define CENTRALWIDGET_H
 
+#include <vector>
+#include <string>
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QGridLayout>
 #include <QGridLayout>
 #include <QPushButton>
 #include <QLabel>
@@ -15,25 +16,29 @@
 #include "faceFilter.h"
 #include "fistFilter.h"
 #include "filterSet.h"
+#include <QDir>
 
 class CentralWidget : public QWidget
 {
     Q_OBJECT
+    QGridLayout* layout;
+    QLabel* cameraLabel;
+    std::vector<std::string> filterNames;
+    //opencv variables
     cv::CascadeClassifier cascade;
     cv::CascadeClassifier fistCascade;
-    Carousel<BaseFilter> glassesCarousel;
-    Carousel<BaseFilter> beardCarousel;
-    Carousel<BaseFilter> hatCarousel;
-    Carousel<BaseFilter> maskCarousel;
-    Carousel<BaseFilter> monocleCarousel;
-    Carousel<BaseFilter> gloveCarousel;
-    Carousel<BaseFilter> puppetCarousel;
-    Carousel<FilterSet> filterSetCarousel;
+    cv::VideoCapture capture;
+    
+    //map of Carousel<BaseFilter>
+    std::map<std::string,Carousel<BaseFilter>*> filterCarouselMap;
+    Carousel<FilterSet>* filterSetCarousel;
 public:
-    CentralWidget(QWidget *parent = nullptr);
+    CentralWidget(QWidget *parent = nullptr); //constructor with logic for buttons and whole program
 private:
-    cv::Mat detectAndDraw(cv::Mat& img);
-    void readCamera(QLabel *label,cv::VideoCapture capture);
+    cv::Mat detectAndDraw(cv::Mat& img); //detects faces and fists and draws filters
+    void readCamera(QLabel *label); //reads camera and displays it on label
+    void loadFilters(); //loads filters from filters folder
+    void createLayout(); //creates the layout of the central widget
 };
 
 #endif // CENTRALWIDGET_H

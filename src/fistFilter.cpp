@@ -1,53 +1,27 @@
 #include "fistFilter.h"
 
-FistFilter::FistFilter(cv::Mat img, int threshMin, int threshMax, FilterType type, std::string name): 
-    BaseFilter(img, threshMin, threshMax, name), type(type)
+FistFilter::FistFilter(cv::Mat img, int threshMin, int threshMax, std::string type, std::string name): 
+    BaseFilter(img, threshMin, threshMax, name)
 {
-    //set the offsets and factors
-    switch(type)
+    //set the offsets and factors according to the filter type
+    //values where obtained by trial and error
+    if(type == "puppet")
     {
-        case Puppet:
-            xFactor = 2.0;
-            yFactor = 2.0;
-            xOffset = 0.0;
-            yOffset = 0.0;
-            break;
-        case Glove:
-            xFactor = 2;
-            yFactor = 2;
-            xOffset = 0;
-            yOffset = 0;
-            break;
-        case Big:
-            xFactor = 1.5;
-            yFactor = 1.5;
-            xOffset = 0.2;
-            yOffset = 0.2;
-            break;
-        case Normall:
-            xFactor = 1.0;
-            yFactor = 1.0;
-            xOffset = 0.0;
-            yOffset = 0.0;
-            break;
-        case Small:
-            xFactor = 0.5;
-            yFactor = 0.5;
-            xOffset = 0.0;
-            yOffset = 0.0;
-            break;
-        case Empty:
-            xFactor = 1.0;
-            yFactor = 1.0;
-            xOffset = 0.0;
-            yOffset = 0.0;
-            break;
-        default:
-            xFactor = 1.0;
-            yFactor = 1.0;
-            xOffset = 0.0;
-            yOffset = 0.0;
-            break;
+        xFactor = 2.0;
+        yFactor = 2.0;
+        xOffset = 0.0;
+        yOffset = 0.0;
+    } else if(type == "glove")
+    {
+        xFactor = 2;
+        yFactor = 2;
+        xOffset = 0;
+        yOffset = 0;
+    } else {
+        xFactor = 1.0;
+        yFactor = 1.0;
+        xOffset = 0.0;
+        yOffset = 0.0;
     }
 }
 

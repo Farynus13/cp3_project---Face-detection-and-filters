@@ -1,6 +1,7 @@
 #include <QApplication>
 #include "../include/mainWindow.h"
-#include<crtdbg.h>
+
+
 using namespace cv;
 using namespace std;
 
@@ -10,8 +11,9 @@ int main(int argc, char** argv)
 
     MainWindow window;
     window.show();
-    _CrtDumpMemoryLeaks();
-    return app.exec();
+    int ret = app.exec();
+
+    return ret;
 }
 
 

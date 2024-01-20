@@ -1,4 +1,5 @@
 C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YEA5652QU/moc_centralWidget.cpp: C:/Users/Oskar/Documents/cp3_project/include/centralWidget.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/QDir \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/QTimer \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/q20functional.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/q20memory.h \
@@ -19,6 +20,7 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qcalendar.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qchar.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qcompare.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qcompare_impl.h \
@@ -31,8 +33,13 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qdatetime.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qdebug.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qdir.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qfile.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qfileinfo.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qflags.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qfloat16.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qforeach.h \
@@ -50,6 +57,7 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qlatin1stringview.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qline.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qlist.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qlocale.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qlogging.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qmalloc.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qmap.h \
@@ -101,6 +109,7 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qtextstream.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qtimer.h \
+  C:/Qt/6.6.1/msvc2019_64/include/QtCore/qtimezone.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qtnoop.h \
   C:/Qt/6.6.1/msvc2019_64/include/QtCore/qtpreprocessorsupport.h \
@@ -164,6 +173,7 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/qwidget.h \
   C:/Users/Oskar/Documents/cp3_project/include/baseFilter.h \
   C:/Users/Oskar/Documents/cp3_project/include/carousel.h \
+  C:/Users/Oskar/Documents/cp3_project/include/carouselWidget.h \
   C:/Users/Oskar/Documents/cp3_project/include/faceFilter.h \
   C:/Users/Oskar/Documents/cp3_project/include/filterSet.h \
   C:/Users/Oskar/Documents/cp3_project/include/fistFilter.h \

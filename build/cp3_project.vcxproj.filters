@@ -7,9 +7,6 @@
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\baseFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\carousel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -20,9 +17,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\mainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\build\cp3_project_autogen\mocs_compilation_Release.cpp">
@@ -40,6 +34,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\carousel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\carouselWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h">

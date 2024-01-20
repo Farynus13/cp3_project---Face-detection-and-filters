@@ -400,6 +400,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\baseFilter.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\carousel.h" />
+    <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\carouselWidget.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\centralWidget.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\faceFilter.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\filterSet.h" />
@@ -407,12 +408,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\mainWindow.h" />
     <ClInclude Include="C:\Users\Oskar\Documents\cp3_project\include\updateLabelInterface.h" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\baseFilter.cpp" />
-    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\carousel.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\centralWidget.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\faceFilter.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\fistFilter.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\main.cpp" />
-    <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\src\mainWindow.cpp" />
     <ClCompile Include="C:\Users\Oskar\Documents\cp3_project\build\cp3_project_autogen\mocs_compilation_Release.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>

@@ -1,49 +1,46 @@
 #include "faceFilter.h"
 
-FaceFilter::FaceFilter(cv::Mat img, int threshMin, int threshMax, FilterType type, std::string name):
-    BaseFilter(img, threshMin, threshMax, name), type(type)
+FaceFilter::FaceFilter(cv::Mat img, int threshMin, int threshMax, std::string type, std::string name):
+    BaseFilter(img, threshMin, threshMax, name)
 {
-    //set the offsets and factors
-    switch(type)
+    //set the offsets and factors according to the filter type
+    //values where obtained by trial and error
+    if(type == "glasses")
     {
-        case(Glasses):
-            yOffset = 1.0 / 10.0;
-            yFactor = 1.0 / 2.0;
-            xOffset = 0;
-            xFactor = 1;
-            break;
-        case(Beard):
-            yOffset = 7 / 16.0;
-            yFactor = 1.0 / 2.0;
-            xOffset = 0;
-            xFactor = 1;
-            break;
-        case(Hat):
-            yOffset = -0.85;
-            yFactor = 1;
-            xOffset = -0.1;
-            xFactor = 1.2;
-            break;
-        case(Mask):
-            yOffset = -0.2;
-            yFactor = 1.0;
-            xOffset = 0;
-            xFactor = 1;
-
-            break;
-        case(Monocle):
-            yOffset = 2.2 / 10.0;
-            yFactor = 1.0 / 2.0;
-            xOffset = 0;
-            xFactor = 1.0 / 2.0;
-            break;
-        default:
-            yOffset = 1.0;
-            yFactor = 1.0 / 2.0;
-            xOffset = 0;
-            xFactor = 1;
-            break;
-    }
+        yOffset = 1.0 / 10.0;
+        yFactor = 1.0 / 2.0;
+        xOffset = 0;
+        xFactor = 1;
+    } else if(type == "beard")
+    {
+        yOffset = 7 / 16.0;
+        yFactor = 1.0 / 2.0;
+        xOffset = 0;
+        xFactor = 1;
+    } else if(type == "hat")
+    {
+        yOffset = -0.85;
+        yFactor = 1;
+        xOffset = -0.1;
+        xFactor = 1.2;
+    } else if(type == "mask")
+    {
+        yOffset = -0.2;
+        yFactor = 1.0;
+        xOffset = 0;
+        xFactor = 1;
+    } else if(type == "monocle")
+    {
+        yOffset = 2.2 / 10.0;
+        yFactor = 1.0 / 2.0;
+        xOffset = 0;
+        xFactor = 1.0 / 2.0;
+    } else {
+        yOffset = 1.0;
+        yFactor = 1.0 / 2.0;
+        xOffset = 0;
+        xFactor = 1;
+    }    
 }
 
 cv::Rect FaceFilter::getFilterROI(const cv::Rect& roi)

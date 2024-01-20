@@ -311,6 +311,12 @@
 			null
 		],
 		[
+			"C:/Users/Oskar/Documents/cp3_project/include/carouselWidget.h",
+			"MU",
+			"6YEA5652QU/moc_carouselWidget.cpp",
+			null
+		],
+		[
 			"C:/Users/Oskar/Documents/cp3_project/include/centralWidget.h",
 			"MU",
 			"6YEA5652QU/moc_centralWidget.cpp",
@@ -507,7 +513,6 @@
 	"SOURCES" : 
 	[
 		[ "C:/Users/Oskar/Documents/cp3_project/src/baseFilter.cpp", "MU", null ],
-		[ "C:/Users/Oskar/Documents/cp3_project/src/carousel.cpp", "MU", null ],
 		[
 			"C:/Users/Oskar/Documents/cp3_project/src/centralWidget.cpp",
 			"MU",
@@ -515,8 +520,7 @@
 		],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/faceFilter.cpp", "MU", null ],
 		[ "C:/Users/Oskar/Documents/cp3_project/src/fistFilter.cpp", "MU", null ],
-		[ "C:/Users/Oskar/Documents/cp3_project/src/main.cpp", "MU", null ],
-		[ "C:/Users/Oskar/Documents/cp3_project/src/mainWindow.cpp", "MU", null ]
+		[ "C:/Users/Oskar/Documents/cp3_project/src/main.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [ "C:/Users/Oskar/Documents/cp3_project/forms" ],
