@@ -2,7 +2,6 @@
 #define CAROUSEL_H
 
 #include <vector>
-<<<<<<< HEAD
 #include <string>
 #include <QGridLayout>
 #include <QPushButton>
@@ -39,39 +38,19 @@ class Carousel: public CarouselWidget{
         connect(buttonUp, &QPushButton::clicked, this, &Carousel::indexUp);
         connect(buttonDown, &QPushButton::clicked, this, &Carousel::indexDown);
     }
-=======
-#include <QLabel>
-#include "updateLabelInterface.h"
-
-template <typename T>
-class Carousel{
-public:
-    // Constructor
-    Carousel() = default;
-    Carousel(QLabel *label);
->>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
     // Destructor
     ~Carousel();
 
 
-<<<<<<< HEAD
 
     // Member functions
     void updateLabel(); // Updates the label with the current node
     void addNode(T *NodeId); // Adds a node to the set
-=======
-    // Member functions
-    void updateLabel(); // Declare the updateLabel function
-
-
-    void addNode(T *NodeId);
->>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
     T* currentNode(); // Returns the current node
     T* getNode(int index); // Returns the node at the given index
     T* getNode(std::string name); // Returns the node with the given name
     void setNode(int index); // Sets the current node to the node at the given index
     void setNode(std::string name); // Sets the current node to the node with the given name
-<<<<<<< HEAD
     T* getNode(int index); // Returns the node at the given index
     T* getNode(std::string name); // Returns the node with the given name
     void setNode(int index); // Sets the current node to the node at the given index
@@ -82,16 +61,6 @@ public:
     static_assert(std::is_base_of<UpdateLabelInterface, T>::value,
              "T must be a subclass of UpdateLabelInterface"); // Checks that T is a subclass of UpdateLabel
 
-=======
-    void indexUp(); // Increments the index
-    void indexDown(); // Decrements the index
-    static_assert(std::is_base_of<UpdateLabelInterface, T>::value, "T must be a subclass of ActionInterface");
-
-    private:
-    QLabel *label;
-    std::vector<T*> nodes; // Vector of node
-    int index;
->>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
 };
 
 template<typename T>
