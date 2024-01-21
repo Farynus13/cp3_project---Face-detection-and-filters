@@ -42,10 +42,15 @@ class Carousel: public CarouselWidget{
     ~Carousel();
 
 
+
     // Member functions
     void updateLabel(); // Updates the label with the current node
     void addNode(T *NodeId); // Adds a node to the set
     T* currentNode(); // Returns the current node
+    T* getNode(int index); // Returns the node at the given index
+    T* getNode(std::string name); // Returns the node with the given name
+    void setNode(int index); // Sets the current node to the node at the given index
+    void setNode(std::string name); // Sets the current node to the node with the given name
     T* getNode(int index); // Returns the node at the given index
     T* getNode(std::string name); // Returns the node with the given name
     void setNode(int index); // Sets the current node to the node at the given index

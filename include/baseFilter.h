@@ -7,6 +7,9 @@
 #include "updateLabelInterface.h"
 #include <QLabel>
 class BaseFilter: public UpdateLabelInterface{
+#include "updateLabelInterface.h"
+#include <QLabel>
+class BaseFilter: public UpdateLabelInterface{
 public:
 protected:
     // Threshold values

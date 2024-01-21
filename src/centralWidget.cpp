@@ -70,7 +70,7 @@ Mat CentralWidget::detectAndDraw(Mat& img)
 
     //detect faces and fists of different sizes using cascade classifier object
     cascade.detectMultiScale(gray, faces, 1.1, 5, 0 | CASCADE_SCALE_IMAGE, Size(80,80));
-    fistCascade.detectMultiScale(gray, fists, 1.1, 2, 0 | CASCADE_SCALE_IMAGE, Size(80,80));
+    fistCascade.detectMultiScale(gray, fists, 1.1, 4, 0 | CASCADE_SCALE_IMAGE, Size(80,80));
     try
     {
         //iterate over the fists and draw filters around them
