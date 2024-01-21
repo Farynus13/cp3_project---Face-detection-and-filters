@@ -1,7 +1,12 @@
 #include "faceFilter.h"
 
+<<<<<<< HEAD
 FaceFilter::FaceFilter(cv::Mat img, int threshMin, int threshMax, std::string type, std::string name):
     BaseFilter(img, threshMin, threshMax, name)
+=======
+FaceFilter::FaceFilter(cv::Mat img, int threshMin, int threshMax, FilterType type, std::string name):
+    BaseFilter(img, threshMin, threshMax, name), type(type)
+>>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
 {
     //set the offsets and factors according to the filter type
     //values where obtained by trial and error

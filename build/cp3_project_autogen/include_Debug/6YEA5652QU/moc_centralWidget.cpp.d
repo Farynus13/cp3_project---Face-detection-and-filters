@@ -173,7 +173,10 @@ C:/Users/Oskar/Documents/cp3_project/build/cp3_project_autogen/include_Debug/6YE
   C:/Qt/6.6.1/msvc2019_64/include/QtWidgets/qwidget.h \
   C:/Users/Oskar/Documents/cp3_project/include/baseFilter.h \
   C:/Users/Oskar/Documents/cp3_project/include/carousel.h \
+<<<<<<< HEAD
   C:/Users/Oskar/Documents/cp3_project/include/carouselWidget.h \
+=======
+>>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
   C:/Users/Oskar/Documents/cp3_project/include/faceFilter.h \
   C:/Users/Oskar/Documents/cp3_project/include/filterSet.h \
   C:/Users/Oskar/Documents/cp3_project/include/fistFilter.h \

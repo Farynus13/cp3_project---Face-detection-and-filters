@@ -34,7 +34,10 @@ void BaseFilter::apply(cv::Mat& frame,const cv::Rect &roi)
 
 void BaseFilter::update(QLabel *label)
 {
+<<<<<<< HEAD
     // Clone the image to work on it
+=======
+>>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
     cv::Mat img = getImg().clone();
     // Convert the frame to QImage for display
     QImage image(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888);

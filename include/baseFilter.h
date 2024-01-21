@@ -7,9 +7,12 @@
 #include "updateLabelInterface.h"
 #include <QLabel>
 class BaseFilter: public UpdateLabelInterface{
+<<<<<<< HEAD
 #include "updateLabelInterface.h"
 #include <QLabel>
 class BaseFilter: public UpdateLabelInterface{
+=======
+>>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
 public:
 protected:
     // Threshold values
@@ -23,7 +26,10 @@ protected:
     double yFactor;
     double xOffset;
     double xFactor;
+<<<<<<< HEAD
     // Name of the filter
+=======
+>>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
     std::string name;
 
 public:
@@ -34,11 +40,16 @@ public:
     virtual bool isFilterEmpty() = 0; // Returns true if the filter is empty
     virtual bool isOutOfFrame(const cv::Mat& frame, const cv::Rect& roi) = 0; // Returns true if the filter is out of frame
     cv::Mat getImg() { return img; } // Returns the filter image
+<<<<<<< HEAD
     std::string getName() const { return name; } // Returns the name of the filter
     void update(QLabel *label) override; // Updates the label with the filter image
 
     virtual ~BaseFilter() = default;
 
+=======
+    void update(QLabel *label) override;
+    std::string getName() const { return name; }
+>>>>>>> fa854b025811298ef2e98ea42d1f8358b65bda61
 };
 
 #endif  // IMAGEFILTER_H
