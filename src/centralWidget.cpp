@@ -31,7 +31,7 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     //create a timer
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, [=]() {
-        readCamera(cameraLabel);
+        readCamera();
     });
 
     //set initial filter set to 1
@@ -39,7 +39,7 @@ CentralWidget::CentralWidget(QWidget *parent) : QWidget(parent)
     
     timer->start(50); // Start the timer to update the camera feed
 }
-void CentralWidget::readCamera(QLabel *cameraLabel) {
+void CentralWidget::readCamera() {
         //create a Mat object to store the current frame
         cv::Mat frame,img;
         capture >> frame; // Read the next frame from the camera

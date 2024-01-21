@@ -36,7 +36,7 @@ public:
     CentralWidget(QWidget *parent = nullptr); //constructor with logic for buttons and whole program
 private:
     cv::Mat detectAndDraw(cv::Mat& img); //detects faces and fists and draws filters
-    void readCamera(QLabel *label); //reads camera and displays it on label
+    void readCamera(); //reads camera and displays it on label
     void loadFilters(); //loads filters from filters folder
     void createLayout(); //creates the layout of the central widget
     void createSets();

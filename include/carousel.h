@@ -54,7 +54,7 @@ class Carousel: public CarouselWidget{
     void indexDown(); // Decrements the index
     std::string getName() const { return name; } // Returns the name of the carousel
     static_assert(std::is_base_of<UpdateLabelInterface, T>::value,
-             "T must be a subclass of ActionInterface"); // Checks that T is a subclass of ActionInterface
+             "T must be a subclass of UpdateLabelInterface"); // Checks that T is a subclass of UpdateLabel
 
 };
 
